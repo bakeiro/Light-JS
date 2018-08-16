@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	button_2.addEventListener("mouseover", function(){
 		
 		let temp_teacher = new app.classes.teacher(5, "Test");
-		app.data.students.push(temp_teacher);
+		app.data.teachers.push(temp_teacher);
 
 		let text_element = "<p>Teacher created!</p>";
 		button_2.insertAdjacentHTML("afterend", text_element);	
