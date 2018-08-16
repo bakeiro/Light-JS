@@ -1,0 +1,9 @@
+div.square{
+	
+	width: 250px;
+	height: 250px;
+	background-color: whitesmoke;
+	border: 1px solid gray;
+	border-radius: 2px;
+	overflow: auto;
+}
