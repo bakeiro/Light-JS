@@ -4,6 +4,7 @@ let app = {};
 app.classes = {};
 app.config = {};
 app.data = {};
+window.document.$ = window.document.querySelector;
 
 //Classes
 import {person} from "./classes/person.js";
