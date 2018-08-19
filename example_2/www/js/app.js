@@ -4,7 +4,6 @@ let app = {};
 app.classes = {};
 app.config = {};
 app.data = {};
-app.events = {};
 
 //Classes
 import {person} from "./classes/person.js";
@@ -25,7 +24,8 @@ app.data.students = [];
 app.data.teachers = [];
 
 //Events
-
+import {pubsub} from "./engine/pubsub.js";
+app.events = pubsub;
 
 //Finish
 window.app = app;

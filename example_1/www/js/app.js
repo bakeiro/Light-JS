@@ -1,4 +1,3 @@
-
 //Startup
 let app = {};
 app.classes = {};
