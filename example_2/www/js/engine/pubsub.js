@@ -1,7 +1,7 @@
 export class pubsub{
 
 	constructor(){
-		let subscribers = {};
+		this.subscribers = {};
 	}
 	
 	sub(name, callback){
@@ -14,8 +14,8 @@ export class pubsub{
 
 	pub(eventName, data){
 
-		if(this.subscribers.eventName){
-			this.subscribers.eventName.foreach(function (eventFunction){
+		if(this.subscribers[eventName]){
+			this.subscribers[eventName].forEach(function (eventFunction){
 				eventFunction(data);
 			});
 		}

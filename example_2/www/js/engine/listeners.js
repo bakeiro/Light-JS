@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	//Events
 	let button_1 = document.querySelector("#button_1");
 	button_1.addEventListener("click", function(){
-		app.events.pub("CreateStudent");
+		app.events.pub("createStudent");
 	});
 
 	let button_2 = document.querySelector("#button_2");
 	button_2.addEventListener("mouseover", function(){
-		app.events.pub("CreateTeacher");	
+		app.events.pub("createTeacher");	
 	});
 
 });

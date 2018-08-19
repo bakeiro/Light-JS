@@ -25,7 +25,7 @@ app.data.teachers = [];
 
 //Events
 import {pubsub} from "./engine/pubsub.js";
-app.events = pubsub;
+app.events = new pubsub();
 
 //Finish
 window.app = app;
