@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function(){
-	
+
 	//createStudent
 	function createStudentObject(){
 		let temp_student = new app.classes.student(5, "Test");

@@ -1,10 +1,22 @@
-
 //Startup
 let app = {};
 app.classes = {};
 app.config = {};
 app.data = {};
-window.document.$ = window.document.querySelector;
+
+window.d = document;
+window.d.$ = window.document.querySelector;
+
+//Config
+app.config.screen_type = "PC";
+app.config.email_account = "davixt3";
+
+//Engine
+import {pubsub} from "./engine/pubsub.js";
+app.events = new pubsub();
+
+import {functions} from "./engine/functions.js";
+app.functions = new functions();
 
 //Classes
 import {person} from "./classes/person.js";
@@ -15,18 +27,7 @@ app.classes.person = person;
 app.classes.student = student;
 app.classes.teacher = teacher;
 
-//Config
-app.config.screen = "PC";
-app.config.email_account = "davixt3";
-//...
-
-//Data
 app.data.students = [];
 app.data.teachers = [];
 
-//Events
-import {pubsub} from "./engine/pubsub.js";
-app.events = new pubsub();
-
-//Finish
 window.app = app;
