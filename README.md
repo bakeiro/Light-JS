@@ -1,6 +1,12 @@
 # What?
 
- Personal method to write JS apps without any frameworks/library, the purpose of this is to offer an alternative for writing JS apps **easy to understand, and simple to scale.**
+ Personal structure to write JS apps without any frameworks/library, the purpose of this is to offer an alternative for writing JS apps without using any modern framework
+
+### Compatibility
+
+This project uses the ES6 classes and ES6 functions, so, be aware this won't work in old browsers.  
+More info about compatibility [here](https://caniuse.com/#search=es6)  
+
  
 ### Folder structure
 

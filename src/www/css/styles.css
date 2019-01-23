@@ -1,23 +1,9 @@
-div.square{
-	width: 250px;
-	height: 250px;
-	background-color: whitesmoke;
-	border: 1px solid gray;
-	border-radius: 2px;
-	overflow: auto;
-	margin: 10px;
-}
-
 div.message{
 	padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
 	border-radius: 0.25rem;
 	background-color: #ff9800;
-    border-color: #faf2cc;
-    color: #fff;
-}
-
-p{
-	margin: 1px;
+	border-color: #faf2cc;
+	color: #fff;
 }
