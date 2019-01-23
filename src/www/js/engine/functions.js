@@ -21,11 +21,12 @@ export class functions{
 		this.fadeIn(message_div);
 	}
 
-	fadeIn(el) {
+	fadeIn(el){
 
 		el.style.opacity = 0;
 	  
 		var last = +new Date();
+		
 		var tick = function() {
 
 			el.style.opacity = +el.style.opacity + (new Date() - last) / 600;
@@ -37,6 +38,10 @@ export class functions{
 		};
 	  
 		tick();
+	}
+
+	fadeOut(el){
+
 	}
 
 	parseURLParams(url) {

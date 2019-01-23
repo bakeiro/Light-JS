@@ -1,5 +1,2 @@
-example_1/dist/*
-example_1/.cache/*
-
-example_2/dist/*
-example_2/.cache/*
+src/dist/*
+src/.cache/*
