@@ -91,12 +91,10 @@ export class functions{
 		let message_div = d.$("div.message");
 		this.fadeIn(message_div);
 
-		let fade_out_fun = this.fadeOut;
-
 		//Hide + remove
-		setTimeout(function(){
-			fade_out_fun(message_div);
-		}, 2000)
+		setTimeout( ()=>{
+			this.fadeOut(message_div, true);
+		}, 2000);
 	}
 
 	fadeIn(el){
@@ -116,17 +114,17 @@ export class functions{
 		tick();
 	}
 
-	fadeOut(el, remove = true){
+	fadeOut(el, remove = false){
 
 		el.style.opacity = 1;
 	  
-		var tick = function() {
+		var tick = () => {
 			el.style.opacity = parseFloat(el.style.opacity) - 0.03;	  
 			if (el.style.opacity > 0) {
 				(window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
 			}else{
 				if(remove){
-					el.remove();
+					this.removeElement(el);
 				}
 			}	  
 		};

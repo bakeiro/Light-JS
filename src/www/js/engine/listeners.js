@@ -3,7 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	//Add dynamic content
 	let div_right = d.$("#left_2");
-	div_right.innerHTML = div_right.innerHTML + "<h4>Dynamic content</h4> <br> <button id='show_message'>Message</button>";
+	let html = `
+		<div class="square">
+			<h4>Dynamic content</h4>
+			<br>
+			<button id='show_message'>Message</button>
+		</div>`;
+	div_right.innerHTML = div_right.innerHTML + html;
 
 });
 

@@ -5,6 +5,7 @@ div.square{
 	border: 1px solid gray;
 	border-radius: 2px;
 	overflow: auto;
+	margin: 10px;
 }
 
 div.message{
@@ -15,4 +16,8 @@ div.message{
 	background-color: #ff9800;
     border-color: #faf2cc;
     color: #fff;
+}
+
+p{
+	margin: 1px;
 }

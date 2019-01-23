@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		button_1.insertAdjacentHTML("afterend", text_element);
 	}
 	
-	app.events.sub("createStudent", createStudentObject);
-	app.events.sub("createStudent", createStudentHtml);
-	
 	
 	//createTeacher
 	function createTeacherObject(){
@@ -27,8 +24,30 @@ document.addEventListener("DOMContentLoaded", function(){
 		let button_2 = document.querySelector("#button_2");
 		button_2.insertAdjacentHTML("afterend", text_element);
 	}
-	
+
+
+	//Refresh data
+	function refreshData(){
+		
+		let string_data = JSON.stringify(app.data, null, "<p></p>");
+		let app_data_box = d.$("#app_data");
+		let data_html = `
+			<h4>App data:</h4>
+			${string_data}
+		`;
+
+		app_data_box.innerHTML = data_html;
+	}
+
+
+	//Bind teacher
 	app.events.sub("createTeacher", createTeacherObject);
 	app.events.sub("createTeacher", createTeacherHtml);
+	app.events.sub("createTeacher", refreshData);
+
+	//Bind student
+	app.events.sub("createStudent", createStudentObject);
+	app.events.sub("createStudent", createStudentHtml);
+	app.events.sub("createStudent", refreshData);
 
 });
