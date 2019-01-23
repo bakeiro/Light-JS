@@ -36,20 +36,20 @@ Normally this objects are represented in the HTML, and are instances from `app.c
 
 This uses the pubsub pattern (publish subscribe pattern), this means, you can define one event, and you can bind it functions, to be executed concatenated, being the last function added, the last function being executed.
 
-for creating and adding functions to one event:
+for creating and adding functions to one event:  
 
-//sub() creates(if didn't exist before) and adds the functions passed in the second param
-app.events.sub("event_name", callback_0);
-app.events.sub("event_name", callback_1);
-app.events.sub("event_name", callback_2);
-app.events.sub("event_name", callback_3);
+//sub() creates(if didn't exist before) and adds the functions passed in the second param  
+app.events.sub("event_name", callback_0);  
+app.events.sub("event_name", callback_1);  
+app.events.sub("event_name", callback_2);  
+app.events.sub("event_name", callback_3);  
 
-so calling app.events.pub("event_name") will execute
+so calling app.events.pub("event_name") will execute  
 
-callback_0();
-callback_1();
-callback_2();
-callback_3();
+callback_0();  
+callback_1();  
+callback_2();  
+callback_3();  
 
 
 ### Included functions
