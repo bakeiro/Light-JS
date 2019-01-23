@@ -11,12 +11,19 @@ More info about compatibility [here](https://caniuse.com/#search=es6)
 This project defines the variable "app" in the window scope (global), so it's accesible through all the scripts and functions.  
 This is the app object structure
 
+App:
+- **classes:** The classes to initialize (ex: car, person, customer...)
+- **config:** (optional) Object which stores the 'configuration' variables, you can use this to store all the variables related to screen resolution, domain, session etc  
+- **data:** Stores all the variables to work with, example, all the customers from one Ajax request, or all the times the user clicked one button etc.  
+- **events:** This defines which event are available to trigger (an event is a group of functions executed in order, you need to define this in src/engine/events)
+- **functions:** Offers some common useful methods to use (examples: number_format, base64_encode ...) 
+
 	app:
-	- **classes:** The classes to initialize (ex: car, person, customer...)
-	- **config:** (optional) Object which stores the 'configuration' variables, you can use this to store all the variables related to screen resolution, domain, session etc  
-	- **data:** Stores all the variables to work with, example, all the customers from one Ajax request, or all the times the user clicked one button etc.  
-	- **events:** This defines which event are available to trigger (an event is a group of functions executed in order)
-	- **functions:** Defines the basic functions, and then, binds one number of functions to one event 
+	app.classes
+	app.config
+	app.data
+	app.events
+	app.functions
  
 ### Folder structure
 
