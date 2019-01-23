@@ -2,26 +2,34 @@
 document.addEventListener("DOMContentLoaded", function() {
 	
 	//Add dynamic content
-	let body_dom = d.$("body");
-	body_dom.innerHTML = body_dom.innerHTML + "<br> <h4>Dynamic content</h4> <br> <button id='show_message' >Message</button>";
+	let div_right = d.$("#left_2");
+	div_right.innerHTML = div_right.innerHTML + "<h4>Dynamic content</h4> <br> <button id='show_message'>Message</button>";
 
 });
 
+
+//Click
 document.addEventListener("click", function(e){
 
-	//Src element
 	let element_id = e.srcElement.id;
 
 	if(element_id === "button_1"){
 		app.events.pub("createStudent");
 	}
-
-	if(element_id === "button_2"){
-		app.events.pub("createTeacher");
-	}
 	
 	if(element_id === "show_message"){
 		app.functions.message("Hi! this is a message");
+	}
+
+});
+
+//Mouseover
+document.addEventListener("mouseover", function(e){
+
+	let element_id = e.srcElement.id;
+
+	if(element_id === "button_2"){
+		app.events.pub("createTeacher");
 	}
 
 });

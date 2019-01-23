@@ -8,7 +8,7 @@ export class functions{
 		return decodeURIComponent(escape(window.atob(str)));
 	}
 
-	message(message, type = "normal"){
+	message(message){
 
 		let html = "";
 		html = `<div class='message'>${message}</div>`;
@@ -19,29 +19,48 @@ export class functions{
 		//Show
 		let message_div = d.$("div.message");
 		this.fadeIn(message_div);
+
+		let fade_out_fun = this.fadeOut;
+
+		//Hide
+		setTimeout(function(){
+			fade_out_fun(message_div);
+		}, 2000)
 	}
 
 	fadeIn(el){
 
 		el.style.opacity = 0;
-	  
-		var last = +new Date();
-		
+
 		var tick = function() {
 
-			el.style.opacity = +el.style.opacity + (new Date() - last) / 600;
-			last = +new Date();
-	  
-			if (+el.style.opacity < 1) {
+			el.style.opacity = parseFloat(el.style.opacity) + 0.03;
+
+			if (el.style.opacity < 1) {
 				(window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-		  	}
+			}
+			
 		};
 	  
 		tick();
 	}
 
-	fadeOut(el){
+	fadeOut(el, remove = true){
 
+		el.style.opacity = 1;
+	  
+		var tick = function() {
+			el.style.opacity = parseFloat(el.style.opacity) - 0.03;	  
+			if (el.style.opacity > 0) {
+				(window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+			}else{
+				if(remove){
+					el.remove();
+				}
+			}	  
+		};
+	  
+		tick();
 	}
 
 	parseURLParams(url) {
