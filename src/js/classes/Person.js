@@ -1,8 +1,8 @@
-class Person{
-	constructor(age, name){
-		this.age = age;
-		this.name = name;
-	}
+class Person {
+  constructor(age, name) {
+    this.age = age;
+    this.name = name;
+  }
 }
 
-export {Person};
+export { Person };
