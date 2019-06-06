@@ -18,7 +18,7 @@ import {pubsub} from './engine/pubsub.js';
 app.events = new pubsub();
 
 import {Functions} from './engine/Functions.js';
-app.functions = new Functions();
+app.functions = Functions;
 
 // Classes
 import {Person} from './classes/Person.js';

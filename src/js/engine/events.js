@@ -1,26 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
   // createStudent
   function createStudentObject() {
-    const temp_student = new app.classes.student(5, 'Test');
-    app.data.students.push(temp_student);
+    const tempStudent = new app.classes.Student(5, 'Test');
+    app.data.students.push(tempStudent);
   }
+
   function createStudentHtml() {
     const textElement = '<p>Student created!</p>';
-
     const button_1 = document.querySelector('#button_1');
+
     button_1.insertAdjacentHTML('afterend', textElement);
   }
 
 
   // createTeacher
   function createTeacherObject() {
-    const tempTeacher = new app.classes.teacher(5, 'Test');
+    const tempTeacher = new app.classes.Teacher(5, 'Test');
     app.data.teachers.push(tempTeacher);
   }
+
   function createTeacherHtml() {
     const textElement = '<p>Teacher created!</p>';
-
     const button_2 = document.querySelector('#button_2');
+
     button_2.insertAdjacentHTML('afterend', textElement);
   }
 

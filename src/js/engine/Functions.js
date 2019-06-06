@@ -1,157 +1,150 @@
-class Functions{
+class Functions {
+  // General use
+  static base64encode(str) {
+    return window.btoa(unescape(encodeURIComponent(str)));
+  }
 
-	//General use
-	base64encode(str){
-		return window.btoa(unescape(encodeURIComponent(str)));
-	}
+  static base64decode(str) {
+    return decodeURIComponent(escape(window.atob(str)));
+  }
 
-	base64decode(str){
-		return decodeURIComponent(escape(window.atob(str)));
-	}
+  static parseURLParams(url) {
+    const queryStart = url.indexOf('?') + 1;
+    let queryEnd = url.indexOf('#') + 1 || url.length + 1;
+    let query = url.slice(queryStart, queryEnd - 1);
+    let pairs = query.replace(/\+/g, ' ').split('&');
+    let parms = {}; let i; let n; let v; let
+      nv;
 
-	parseURLParams(url) {
-		var queryStart = url.indexOf("?") + 1,
-			queryEnd   = url.indexOf("#") + 1 || url.length + 1,
-			query = url.slice(queryStart, queryEnd - 1),
-			pairs = query.replace(/\+/g, " ").split("&"),
-			parms = {}, i, n, v, nv;
-	
-		if (query === url || query === "") return;
-	
-		for (i = 0; i < pairs.length; i++) {
-			nv = pairs[i].split("=", 2);
-			n = decodeURIComponent(nv[0]);
-			v = decodeURIComponent(nv[1]);
-	
-			if (!parms.hasOwnProperty(n)) parms[n] = [];
-			parms[n].push(nv.length === 2 ? v : null);
-		}
-		return parms;
-	}
+    if (query === url || query === '') return;
 
-	getDomain(){
-		return `${window.location.protocol}//${window.location.host}/`;
-	}
+    for (i = 0; i < pairs.length; i++) {
+      nv = pairs[i].split('=', 2);
+      n = decodeURIComponent(nv[0]);
+      v = decodeURIComponent(nv[1]);
 
-	onExitFunction(message = "Are you sure you want to quit?"){
-		if(app.config.alert_exit){
-			return message;
-		}
-	}
+      if (!parms.hasOwnProperty(n)) parms[n] = [];
+      parms[n].push(nv.length === 2 ? v : null);
+    }
+    return parms;
+  }
 
-	confirmMessage(message = "Are you sure you want to quit?"){
-		if(app.config.alert_exit){
-			return confirm(message);
-		}else{
-			return true;
-		}
-	}
+  static getDomain() {
+    return `${window.location.protocol}//${window.location.host}/`;
+  }
 
-	//Numbers
-	isNumeric(value){
-		return !isNaN(value - parseFloat(value));
-	}
-	
-	number_format(number, decimals, decPoint, thousandsSep) {
-	
-		number = (number + "").replace(/[^0-9+\-Ee.]/g, "");
-		var n = !isFinite(+number) ? 0 : +number;
-		var prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
-		var sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
-		var dec = (typeof decPoint === "undefined") ? "." : decPoint;
-		var s = "";
-	
-		var toFixedFix = function (n, prec) {
-			var k = Math.pow(10, prec);
-			return "" + (Math.round(n * k) / k).toFixed(prec);
-		};
-	
-		s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
-		if (s[0].length > 3) {
-			s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
-		}
-		if ((s[1] || "").length < prec) {
-			s[1] = s[1] || "";
-			s[1] += new Array(prec - s[1].length + 1).join("0");
-		}
-	
-		return s.join(dec);
-	}
+  static onExitFunction(message = 'Are you sure you want to quit?') {
+    if (app.config.alert_exit) {
+      return message;
+    }
+  }
 
-	//UI/effects
-	message(message){
+  static confirmMessage(message = 'Are you sure you want to quit?') {
+    if (app.config.alert_exit) {
+      return confirm(message);
+    }
+    return true;
+  }
 
-		let html = "";
-		html = `<div class='message'>${message}</div>`;
-		
-		let container = d.$("body");
-		container.innerHTML = html + container.innerHTML;
+  // Numbers
+  static isNumeric(value) {
+    return !isNaN(value - parseFloat(value));
+  }
 
-		//Show
-		let message_div = d.$("div.message");
-		this.fadeIn(message_div);
+  static number_format(number, decimals, decPoint, thousandsSep) {
+    number = (`${number }`).replace(/[^0-9+\-Ee.]/g, '');
+    const n = !isFinite(+number) ? 0 : +number;
+    const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
+    const sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep;
+    const dec = (typeof decPoint === 'undefined') ? '.' : decPoint;
+    let s = '';
 
-		//Hide + remove
-		setTimeout( ()=>{
-			this.fadeOut(message_div, true);
-		}, 2000);
-	}
+    const toFixedFix = function (n, prec) {
+      const k = Math.pow(10, prec);
+      return `${  (Math.round(n * k) / k).toFixed(prec)}`;
+    };
 
-	fadeIn(el){
+    s = (prec ? toFixedFix(n, prec) : `${  Math.round(n)}`).split('.');
+    if (s[0].length > 3) {
+      s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+    }
+    if ((s[1] || '').length < prec) {
+      s[1] = s[1] || '';
+      s[1] += new Array(prec - s[1].length + 1).join('0');
+    }
 
-		el.style.opacity = 0;
+    return s.join(dec);
+  }
 
-		var tick = function() {
+  // UI/effects
+  static message(message) {
+    let html = '';
+    html = `<div class='message'>${message}</div>`;
 
-			el.style.opacity = parseFloat(el.style.opacity) + 0.03;
+    const container = d.$('body');
+    container.innerHTML = html + container.innerHTML;
 
-			if (el.style.opacity < 1) {
-				(window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-			}
-			
-		};
-	  
-		tick();
-	}
+    // Show
+    const message_div = d.$('div.message');
+    this.fadeIn(message_div);
 
-	fadeOut(el, remove = false){
+    // Hide + remove
+    setTimeout(() => {
+      this.fadeOut(message_div, true);
+    }, 2000);
+  }
 
-		el.style.opacity = 1;
-	  
-		var tick = () => {
-			el.style.opacity = parseFloat(el.style.opacity) - 0.03;	  
-			if (el.style.opacity > 0) {
-				(window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-			}else{
-				if(remove){
-					this.removeElement(el);
-				}
-			}	  
-		};
-	  
-		tick();
-	}
+  static fadeIn(el) {
+    el.style.opacity = 0;
 
-	hide(el){
-		el.style.display = "none";
-	}
+    let tick = () => {
+      el.style.opacity = parseFloat(el.style.opacity) + 0.03;
 
-	show(el){
-		el.style.display = "";
-	}
+      if (el.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+      }
+    };
 
-	//HTML
-	insertAfter(target, html){
-		target.insertAdjacentHTML("afterend", html);
-	}
+    tick();
+  }
 
-	insertBefore(target, html){
-		target.insertAdjacentHTML("beforebegin", html);
-	}
+  static fadeOut(el, remove = false) {
+    el.style.opacity = 1;
 
-	removeElement(el){
-		el.parentNode.removeChild(el);
-	}
+    let tick = () => {
+      el.style.opacity = parseFloat(el.style.opacity) - 0.03;
+      if (el.style.opacity > 0) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+      } else { 
+        if (remove) {
+          this.removeElement(el);
+        }
+      }
+    };
+
+    tick();
+  }
+
+  static hide(el) {
+    el.style.display = 'none';
+  }
+
+  static show(el) {
+    el.style.display = '';
+  }
+
+  // HTML
+  static insertAfter(target, html) {
+    target.insertAdjacentHTML('afterend', html);
+  }
+
+  static insertBefore(target, html) {
+    target.insertAdjacentHTML('beforebegin', html);
+  }
+
+  static removeElement(el) {
+    el.parentNode.removeChild(el);
+  }
 }
 
-export {Functions};
+export { Functions };
