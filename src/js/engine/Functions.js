@@ -1,4 +1,4 @@
-export class functions{
+class Functions{
 
 	//General use
 	base64encode(str){
@@ -152,5 +152,6 @@ export class functions{
 	removeElement(el){
 		el.parentNode.removeChild(el);
 	}
-
 }
+
+export {Functions};

@@ -1,8 +1,8 @@
-export class student /*extends person*/{
-
+class Person{
 	constructor(age, name){
 		this.age = age;
 		this.name = name;
 	}
-	
 }
+
+export {Person};

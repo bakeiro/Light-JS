@@ -1,0 +1,25 @@
+{
+  "name": "jsApps",
+  "version": "1.0.0",
+  "description": "Personal structure to write apps in vanilla JS, the purpose of this is to offer an alternative for writing frameworkless JS apps.\r  No library dependence.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bakeiro/JS-Apps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bakeiro/JS-Apps/issues"
+  },
+  "homepage": "https://github.com/bakeiro/JS-Apps#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  }
+}
