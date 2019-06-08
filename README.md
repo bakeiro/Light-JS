@@ -9,14 +9,14 @@ This project uses the ES6 classes, ES6 functions, ES6 Number... so, be aware thi
 
 ### App structure
 
-This project defines the object "app" in the global scope, so it's accesible through all the scripts and functions.  
+This project defines an object "app" in the global scope, so it's accesible through all the scripts and functions.  
 The app object defines some keys:
 
 - `app.classes`: The available classes to initialize (ex: car, person, customer...), normally, these classes contain methods to modify the HTML.
 - `app.config`: Object which stores important variables related to configuration, I use it to store domain, url, session, screen resolution or whatever variable I regard important.
 - `app.data`: Stores all the objects instances to work with, example, an array of customers, products etc.
-Normally this objects are represented in the HTML, and are instances from `app.classes`.  
-- `app.events`: This class can trigger and create events (an event is a group of functions executed in order, you define them in `src/engine/events`).
+Normally these objects are represented in the HTML, and are instances from `app.classes`.  
+- `app.events`: This class can trigger and subscribe events (an event is a group of functions executed in order, you define them in `src/engine/events`).
 - `app.functions`: Offers some useful methods to use (examples: number_format, base64_encode ...) 
 
 
@@ -70,3 +70,7 @@ This includes some common functions out of the box, to it's easier to make a pro
 - remove
 
 much more...
+
+### ESLint
+
+This projects uses Eslint with the Airbnb guidelines
