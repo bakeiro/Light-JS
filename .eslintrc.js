@@ -13,6 +13,7 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "no-alert": "off",
+    "prefer-const": "off",
     "prefer-destructuring": "off",
     "class-methods-use-this": "off",
     //"camelcase": ["error", {properties: "never"}]

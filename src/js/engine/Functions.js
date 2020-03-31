@@ -43,7 +43,7 @@ class Functions {
    * @param {string} url Url to parse
    */
   static parseURLParams(url) {
-    const queryStart = url.indexOf("?") + 1;
+    let queryStart = url.indexOf("?") + 1;
     let queryEnd = url.indexOf("#") + 1 || url.length + 1;
     let query = url.slice(queryStart, queryEnd - 1);
     let pairs = query.replace(/\+/g, " ").split("&");
@@ -88,14 +88,14 @@ class Functions {
    */
   static numberFormat(number, decimals, decPoint, thousandsSep) {
     number = (`${number}`).replace(/[^0-9+\-Ee.]/g, "");
-    const n = !isFinite(+number) ? 0 : +number;
-    const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
-    const sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
-    const dec = (typeof decPoint === "undefined") ? "." : decPoint;
+    let n = !isFinite(+number) ? 0 : +number;
+    let prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
+    let sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
+    let dec = (typeof decPoint === "undefined") ? "." : decPoint;
     let s = "";
 
-    const toFixedFix = (n, prec) => {
-      const k = Math.pow(10, prec);
+    let toFixedFix = (n, prec) => {
+      let k = Math.pow(10, prec);
       return `${(Math.round(n * k) / k).toFixed(prec)}`;
     };
 
@@ -116,21 +116,21 @@ class Functions {
    * @param {string} message Message to show
    * @param {int} seconds Number of milliseconds that the message is keep
    */
-  static message(message, milliseconds = 0) {
+  static message(message, milliseconds = 0, speed = "normal") {
     let html = "";
     html = `<div class='message'>${message}</div>`;
 
-    const container = d.$("body");
+    let container = d.$("body");
     container.innerHTML = html + container.innerHTML;
 
     // Show
-    const message_div = d.$("div.message");
-    this.fadeIn(message_div);
+    let message_div = d.$("div.message");
+    this.fadeIn(message_div, speed);
 
     // Hide + remove
     if (milliseconds !== 0) {
       setTimeout(() => {
-        this.fadeOut(message_div, true);
+        this.fadeOut(message_div, speed);
       }, milliseconds);
     }
   }
@@ -139,37 +139,54 @@ class Functions {
    * Appear a hidden element doing an animation
    * @param {HTMLElement} el DOM element to restore
    */
-  static fadeIn(el) {
+  static fadeIn(el, speed = "normal", display = "block") {
     el.style.opacity = 0;
+    el.style.display = display;
 
-    let tick = () => {
-      el.style.opacity = parseFloat(el.style.opacity) + 0.03;
+    let speed_num = 0.05;
+    if (speed === "fast") {
+      speed_num = 0.1;
+    }
+    if (speed === "slow") {
+      speed_num = 0.025;
+    }
 
-      if (el.style.opacity < 1) {
-        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    let fade = () => {
+      let temp_val = parseFloat(el.style.opacity);
+      let comp_val = (temp_val += speed_num);
+      if (!(comp_val > 1)) {
+        el.style.opacity = temp_val;
+        requestAnimationFrame(fade);
       }
     };
-
-    tick();
+    fade();
   }
 
   /**
    * Hides an HTMLElement doing an animation
    * @param {HTMLElement} el HTMLElement to make it disappear
    */
-  static fadeOut(el, remove = false) {
+  static fadeOut(el, speed = "normal") {
     el.style.opacity = 1;
 
-    let tick = () => {
-      el.style.opacity = parseFloat(el.style.opacity) - 0.03;
-      if (el.style.opacity > 0) {
-        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-      } else if (remove) {
-        el.parentNode.removeChild(el);
+    let speed_num = 0.05;
+    if (speed === "fast") {
+      speed_num = 0.1;
+    }
+    if (speed === "slow") {
+      speed_num = 0.025;
+    }
+
+    let fade = () => {
+      let temp_opacity = (el.style.opacity -= speed_num);
+      if (temp_opacity < 0) {
+        el.style.display = "none";
+      } else {
+        requestAnimationFrame(fade);
       }
     };
 
-    tick();
+    fade();
   }
 
   /**
@@ -208,7 +225,6 @@ class Functions {
   }
 
   /**
-   * 
    * @param {HTMLElement} el HTMLElement to shows
    */
   static show(el) {
@@ -235,5 +251,6 @@ class Functions {
   static remove(el) {
     el.parentNode.removeChild(el);
   }
+}
 
 export { Functions };
