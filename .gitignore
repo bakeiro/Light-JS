@@ -1,7 +1,6 @@
 # Cache
-scr/.cache/*
-scr/dist/*
-
+src/.cache/*
+src/dist/*
 
 # Node
 node_modules/*
