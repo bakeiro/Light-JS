@@ -1,5 +1,7 @@
 # Cache
 scr/.cache/*
+scr/dist/*
+
 
 # Node
 node_modules/*

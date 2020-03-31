@@ -18,6 +18,10 @@ let app = {};
 app.classes = {};
 app.data = {};
 
+// Shortcut
+window.d = window.document;
+window.d.$ = window.document.querySelector;
+
 // Data
 app.data.students = [];
 app.data.teachers = [];
@@ -30,7 +34,7 @@ app.functions = Functions;
 app.classes.Person = Person;
 app.classes.Student = Student;
 app.classes.Teacher = Teacher;
-app.classes.Table = Table;
+app.classes.Table = new Table();
 
 // PubSub events
 app.events.sub("createTeacher", app.classes.Table.createTeacherJS);
