@@ -1,5 +1,25 @@
 /**
  * Static class, it contains general use functions
+ * 
+ * base64encode
+ * base64decode
+ * 
+ * parseURLParams
+ * getDomain
+ * 
+ * isNumeric
+ * numberFormat
+ * 
+ * message
+ * 
+ * fadeIn
+ * fadeOut
+ * hide
+ * show
+ * 
+ * insertAfter
+ * insertBefore
+ * remove
  */
 class Functions {
   /**
@@ -66,8 +86,8 @@ class Functions {
    * @param {string} decPoint how to represent a decimal separator
    * @param {string} thousandsSep how to show the thousand separator
    */
-  static number_format(number, decimals, decPoint, thousandsSep) {
-    number = (`${number }`).replace(/[^0-9+\-Ee.]/g, "");
+  static numberFormat(number, decimals, decPoint, thousandsSep) {
+    number = (`${number}`).replace(/[^0-9+\-Ee.]/g, "");
     const n = !isFinite(+number) ? 0 : +number;
     const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
     const sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
@@ -79,7 +99,7 @@ class Functions {
       return `${(Math.round(n * k) / k).toFixed(prec)}`;
     };
 
-    s = (prec ? toFixedFix(n, prec) : `${  Math.round(n)}`).split(".");
+    s = (prec ? toFixedFix(n, prec) : `${Math.round(n)}`).split(".");
     if (s[0].length > 3) {
       s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
     }
@@ -144,12 +164,39 @@ class Functions {
       el.style.opacity = parseFloat(el.style.opacity) - 0.03;
       if (el.style.opacity > 0) {
         (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-      } else if( remove ) {
+      } else if (remove) {
         el.parentNode.removeChild(el);
       }
     };
 
     tick();
+  }
+
+  /**
+   * Adds the specified class into the specified HTML element
+   * @param {HTMLElement} el Element to add the class
+   * @param {string} className class name to add
+   */
+  static addClass(el, className) {
+    el.classList.add(className);
+  }
+
+  /**
+   * Removes the specified class into the specified HTML element
+   * @param {HTMLElement} el Element to remove the class
+   * @param {string} className class name to remove
+   */
+  static removeClass(el, className) {
+    el.classList.remove(className);
+  }
+
+  /**
+   * Toggle the specified class into the specified HTML element
+   * @param {HTMLElement} el Element to toggle the class
+   * @param {string} className class name to toggle
+   */
+  static toggleClass(el, className) {
+    el.classList.toggle(className);
   }
 
   /**
@@ -177,9 +224,16 @@ class Functions {
     target.insertAdjacentHTML("beforebegin", html);
   }
 
-  static removeElement(el) {
+  static append(target, element_to_add) {
+    target.appendChild(element_to_add);
+  }
+
+  static prepend(target, element_to_add) {
+    target.insertBefore(element_to_add, target.firstChild);
+  }
+
+  static remove(el) {
     el.parentNode.removeChild(el);
   }
-}
 
 export { Functions };
