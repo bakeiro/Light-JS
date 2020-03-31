@@ -1,4 +1,4 @@
-class pubsub {
+class PubSub {
   constructor() {
     this.subscribers = {};
   }
@@ -20,4 +20,4 @@ class pubsub {
   }
 }
 
-export { pubsub };
+export { PubSub };

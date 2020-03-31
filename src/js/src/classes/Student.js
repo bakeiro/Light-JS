@@ -1,10 +1,10 @@
-import { Person } from './Person.js';
+import { Person } from "./Person.js";
 
-class Teacher extends Person {
+class Student extends Person {
   constructor(age, name, classRoom) {
     super(age, name);
     this.classRoom = classRoom;
   }
 }
 
-export { Teacher };
+export { Student };

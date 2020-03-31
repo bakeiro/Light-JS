@@ -1,13 +1,27 @@
+/**
+ * Static class, it contains general use functions
+ */
 class Functions {
-  // General use
+  /**
+   * Encode in base 64 (like PHP function)
+   * @param {mix} str value to encode
+   */
   static base64encode(str) {
     return window.btoa(unescape(encodeURIComponent(str)));
   }
 
+  /**
+   * Decodes the base64 encoded content
+   * @param {mix} str Decodes the already coded content
+   */
   static base64decode(str) {
     return decodeURIComponent(escape(window.atob(str)));
   }
 
+  /**
+   * Parses an URL given in the url param, and return all the GET variables inside the URL
+   * @param {string} url Url to parse
+   */
   static parseURLParams(url) {
     const queryStart = url.indexOf('?') + 1;
     let queryEnd = url.indexOf('#') + 1 || url.length + 1;
@@ -29,28 +43,29 @@ class Functions {
     return parms;
   }
 
+  /**
+   * Get current domain
+   */
   static getDomain() {
     return `${window.location.protocol}//${window.location.host}/`;
   }
 
-  static onExitFunction(message = 'Are you sure you want to quit?') {
-    if (app.config.alert_exit) {
-      return message;
-    }
-  }
-
-  static confirmMessage(message = 'Are you sure you want to quit?') {
-    if (app.config.alert_exit) {
-      return confirm(message);
-    }
-    return true;
-  }
-
-  // Numbers
+  /**
+   * Checks if the given value in the value param it's an number
+   * @param {mix} value value to check if it's an number
+   */
   static isNumeric(value) {
     return !isNaN(value - parseFloat(value));
   }
 
+  /**
+   * Formats the given number to show it properly formatted, depending the used parameters, it's a JS copy
+   * of the PHP function `number_format`
+   * @param {int|float|string} number number to parse
+   * @param {int} decimals decimals to show
+   * @param {string} decPoint how to represent a decimal separator
+   * @param {string} thousandsSep how to show the thousand separator
+   */
   static number_format(number, decimals, decPoint, thousandsSep) {
     number = (`${number }`).replace(/[^0-9+\-Ee.]/g, '');
     const n = !isFinite(+number) ? 0 : +number;
@@ -59,9 +74,9 @@ class Functions {
     const dec = (typeof decPoint === 'undefined') ? '.' : decPoint;
     let s = '';
 
-    const toFixedFix = function (n, prec) {
+    const toFixedFix = (n, prec) => {
       const k = Math.pow(10, prec);
-      return `${  (Math.round(n * k) / k).toFixed(prec)}`;
+      return `${(Math.round(n * k) / k).toFixed(prec)}`;
     };
 
     s = (prec ? toFixedFix(n, prec) : `${  Math.round(n)}`).split('.');
@@ -76,8 +91,12 @@ class Functions {
     return s.join(dec);
   }
 
-  // UI/effects
-  static message(message) {
+  /**
+   * Shows a message, after the body tag, that disappear after
+   * @param {string} message Message to show
+   * @param {int} seconds Number of milliseconds that the message is keep
+   */
+  static message(message, milliseconds) {
     let html = '';
     html = `<div class='message'>${message}</div>`;
 
@@ -91,9 +110,13 @@ class Functions {
     // Hide + remove
     setTimeout(() => {
       this.fadeOut(message_div, true);
-    }, 2000);
+    }, milliseconds);
   }
 
+  /**
+   * Appear a hidden element doing an animation
+   * @param {HTMLElement} el DOM element to restore
+   */
   static fadeIn(el) {
     el.style.opacity = 0;
 
@@ -108,27 +131,35 @@ class Functions {
     tick();
   }
 
-  static fadeOut(el, remove = false) {
+  /**
+   * Hides an HTMLElement doing an animation
+   * @param {HTMLElement} el HTMLElement to make it disappear
+   */
+  static fadeOut(el) {
     el.style.opacity = 1;
 
     let tick = () => {
       el.style.opacity = parseFloat(el.style.opacity) - 0.03;
       if (el.style.opacity > 0) {
         (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-      } else { 
-        if (remove) {
-          this.removeElement(el);
-        }
       }
     };
 
     tick();
   }
 
+  /**
+   * Hides the given HTMLElement
+   * @param {HTMLElement} el HTMLElement to hide
+   */
   static hide(el) {
     el.style.display = 'none';
   }
 
+  /**
+   * 
+   * @param {HTMLElement} el HTMLElement to shows
+   */
   static show(el) {
     el.style.display = '';
   }
