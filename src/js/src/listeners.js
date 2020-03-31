@@ -22,7 +22,7 @@ document.addEventListener("click", (e) => {
   }
 
   if (elementId === "show_message") {
-    app.functions.message("Hi! this is a message");
+    app.functions.message("Hi! this is a message", 2000);
   }
 });
 

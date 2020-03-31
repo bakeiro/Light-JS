@@ -23,17 +23,17 @@ class Functions {
    * @param {string} url Url to parse
    */
   static parseURLParams(url) {
-    const queryStart = url.indexOf('?') + 1;
-    let queryEnd = url.indexOf('#') + 1 || url.length + 1;
+    const queryStart = url.indexOf("?") + 1;
+    let queryEnd = url.indexOf("#") + 1 || url.length + 1;
     let query = url.slice(queryStart, queryEnd - 1);
-    let pairs = query.replace(/\+/g, ' ').split('&');
+    let pairs = query.replace(/\+/g, " ").split("&");
     let parms = {}; let i; let n; let v; let
       nv;
 
-    if (query === url || query === '') return;
+    if (query === url || query === "") return;
 
     for (i = 0; i < pairs.length; i++) {
-      nv = pairs[i].split('=', 2);
+      nv = pairs[i].split("=", 2);
       n = decodeURIComponent(nv[0]);
       v = decodeURIComponent(nv[1]);
 
@@ -67,25 +67,25 @@ class Functions {
    * @param {string} thousandsSep how to show the thousand separator
    */
   static number_format(number, decimals, decPoint, thousandsSep) {
-    number = (`${number }`).replace(/[^0-9+\-Ee.]/g, '');
+    number = (`${number }`).replace(/[^0-9+\-Ee.]/g, "");
     const n = !isFinite(+number) ? 0 : +number;
     const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
-    const sep = (typeof thousandsSep === 'undefined') ? ',' : thousandsSep;
-    const dec = (typeof decPoint === 'undefined') ? '.' : decPoint;
-    let s = '';
+    const sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
+    const dec = (typeof decPoint === "undefined") ? "." : decPoint;
+    let s = "";
 
     const toFixedFix = (n, prec) => {
       const k = Math.pow(10, prec);
       return `${(Math.round(n * k) / k).toFixed(prec)}`;
     };
 
-    s = (prec ? toFixedFix(n, prec) : `${  Math.round(n)}`).split('.');
+    s = (prec ? toFixedFix(n, prec) : `${  Math.round(n)}`).split(".");
     if (s[0].length > 3) {
       s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
     }
-    if ((s[1] || '').length < prec) {
-      s[1] = s[1] || '';
-      s[1] += new Array(prec - s[1].length + 1).join('0');
+    if ((s[1] || "").length < prec) {
+      s[1] = s[1] || "";
+      s[1] += new Array(prec - s[1].length + 1).join("0");
     }
 
     return s.join(dec);
@@ -96,21 +96,23 @@ class Functions {
    * @param {string} message Message to show
    * @param {int} seconds Number of milliseconds that the message is keep
    */
-  static message(message, milliseconds) {
-    let html = '';
+  static message(message, milliseconds = 0) {
+    let html = "";
     html = `<div class='message'>${message}</div>`;
 
-    const container = d.$('body');
+    const container = d.$("body");
     container.innerHTML = html + container.innerHTML;
 
     // Show
-    const message_div = d.$('div.message');
+    const message_div = d.$("div.message");
     this.fadeIn(message_div);
 
     // Hide + remove
-    setTimeout(() => {
-      this.fadeOut(message_div, true);
-    }, milliseconds);
+    if (milliseconds !== 0) {
+      setTimeout(() => {
+        this.fadeOut(message_div, true);
+      }, milliseconds);
+    }
   }
 
   /**
@@ -135,13 +137,15 @@ class Functions {
    * Hides an HTMLElement doing an animation
    * @param {HTMLElement} el HTMLElement to make it disappear
    */
-  static fadeOut(el) {
+  static fadeOut(el, remove = false) {
     el.style.opacity = 1;
 
     let tick = () => {
       el.style.opacity = parseFloat(el.style.opacity) - 0.03;
       if (el.style.opacity > 0) {
         (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+      } else if( remove ) {
+        el.parentNode.removeChild(el);
       }
     };
 
@@ -153,7 +157,7 @@ class Functions {
    * @param {HTMLElement} el HTMLElement to hide
    */
   static hide(el) {
-    el.style.display = 'none';
+    el.style.display = "none";
   }
 
   /**
@@ -161,16 +165,16 @@ class Functions {
    * @param {HTMLElement} el HTMLElement to shows
    */
   static show(el) {
-    el.style.display = '';
+    el.style.display = "";
   }
 
   // HTML
   static insertAfter(target, html) {
-    target.insertAdjacentHTML('afterend', html);
+    target.insertAdjacentHTML("afterend", html);
   }
 
   static insertBefore(target, html) {
-    target.insertAdjacentHTML('beforebegin', html);
+    target.insertAdjacentHTML("beforebegin", html);
   }
 
   static removeElement(el) {
