@@ -1,6 +1,5 @@
-# Hidden folders
-./vscode/*
-.cache/*
+# Cache
+scr/.cache/*
 
 # Node
 node_modules/*
