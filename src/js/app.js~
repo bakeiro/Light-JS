@@ -7,9 +7,6 @@
 import { PubSub } from "./engine/PubSub.js";
 import { Functions } from "./engine/Functions.js";
 
-// Listener
-import { } from "./src/listeners.js";
-
 // Classes
 import { Person } from "./src/classes/Person.js";
 import { Student } from "./src/classes/Student.js";

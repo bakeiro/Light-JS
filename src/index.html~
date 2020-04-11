@@ -41,14 +41,16 @@
 		</div>
 
 	</div>
+
 	
 	<div id="left_2" style="float:left;">
 		<div id="app_data" class="square">
 		</div>
 	</div>
 
-	<!-- App -->
+	<!-- Resources -->
 	<script type="module" src="js/app.js"></script>
+	<script src="js/src/listeners.js"></script>
 
 </body>
 </html>
