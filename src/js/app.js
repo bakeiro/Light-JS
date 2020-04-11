@@ -8,10 +8,10 @@ import { PubSub } from "./engine/PubSub.js";
 import { Functions } from "./engine/Functions.js";
 
 // Listener
-import { } from "./src/listeners.js";
+import { } from "./src/Events.js";
 
 // Classes
-import * as classes from './src/importClasses.js';
+import * as classes from './src/Classes.js';
 
 // App
 let app = {};
@@ -38,13 +38,20 @@ app.functions = Functions;
 app.classes = classes;
 
 // PubSub events
-app.events.sub("createTeacher", app.classes.Table.createTeacherJS);
-app.events.sub("createTeacher", app.classes.Table.createTeacherHTML);
-app.events.sub("createTeacher", app.classes.Table.refreshData);
+import { pub_sub_events } from "./src/PubSubFunctions.js";
 
-app.events.sub("createStudent", app.classes.Table.createStudentJS);
-app.events.sub("createStudent", app.classes.Table.createStudentHTML);
-app.events.sub("createStudent", app.classes.Table.refreshData);
+Object.keys(pub_sub_events).forEach((event_name, index) => {
+    
+    let list_events_to_add = [];
+    pub_sub_events[event_name].forEach((event_function) => {
+        list_events_to_add.push(event_function);
+    });
+    
+    list_events_to_add.forEach((event_function_name) => {
+        let splitted_array = event_function_name.split(/[.]/g);
+        app.events.sub(event_name, app[splitted_array[0]][splitted_array[1]][splitted_array[2]]);
+    });
+});
 
 // Global scope
 window.app = app;
