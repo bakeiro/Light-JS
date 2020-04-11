@@ -1,14 +1,9 @@
 /**
-    Experiment here (WIP)
-    this files tries to import all classes in a folder, and define which classes
-    need to be imported in the app.classes scope
-*/
+ * Here you define the classes to be imported in the app.classes scope
+ * in order to be able to access/instantiate and use them.
+ */
 
-// import { Person } from "./src/classes/Person.js";
-// import { Student } from "./src/classes/Student.js";
-// import { Teacher } from "./src/classes/Teacher.js";
-// import { Table } from "./src/classes/Table.js";
-
-// TODO: finish here
-
-
+export { Person } from './classes/Person.js';
+export { Student } from './classes/Student.js';
+export { Table } from './classes/Table.js';
+export { Teacher } from './classes/Teacher.js';

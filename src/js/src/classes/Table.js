@@ -1,27 +1,27 @@
 class Table {
-  createStudentJS() {
+  static createStudentJS() {
     const tempStudent = new app.classes.Student(5, "Test");
     app.data.students.push(tempStudent);
   }
 
-  createStudentHTML() {
+  static createStudentHTML() {
     const textElement = "<p>Student created!</p>";
     const button_1 = document.querySelector("#button_1");
     button_1.insertAdjacentHTML("afterend", textElement);
   }
 
-  createTeacherJS() {
+  static createTeacherJS() {
     const tempTeacher = new app.classes.Teacher(5, "Test");
     app.data.teachers.push(tempTeacher);
   }
 
-  createTeacherHTML() {
+  static createTeacherHTML() {
     const textElement = "<p>Teacher created!</p>";
     const button_2 = document.querySelector("#button_2");
     button_2.insertAdjacentHTML("afterend", textElement);
   }
 
-  refreshData() {
+  static refreshData() {
     const stringData = JSON.stringify(app.data, null, '<p></p>');
     const appDataBox = d.$('#app_data');
     const dataHtml = `

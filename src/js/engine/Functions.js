@@ -125,6 +125,11 @@ class Functions {
 
     // Show
     let message_div = d.$("div.message");
+    // message_div.style.border = "11";
+    message_div.style.borderRadius = "0.25rem";
+    message_div.style.marginBottom = "1rem";
+    message_div.style.padding = "0.75rem 1.25rem";
+    
     this.fadeIn(message_div, speed);
 
     // Hide + remove

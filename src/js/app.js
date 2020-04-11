@@ -11,10 +11,7 @@ import { Functions } from "./engine/Functions.js";
 import { } from "./src/listeners.js";
 
 // Classes
-import { Person } from "./src/classes/Person.js";
-import { Student } from "./src/classes/Student.js";
-import { Teacher } from "./src/classes/Teacher.js";
-import { Table } from "./src/classes/Table.js";
+import * as classes from './src/importClasses.js';
 
 // App
 let app = {};
@@ -26,18 +23,19 @@ window.d = window.document;
 window.d.$ = window.document.querySelector;
 
 // Data
-app.data.students = [];
-app.data.teachers = [];
+let classes_names = Object.keys(classes);
+classes_names.forEach((value) => {
+    let temp_index = value.toLowerCase();
+    temp_index += "s";
+    app.data[temp_index] = [];
+});
 
 // Engine
 app.events = new PubSub();
 app.functions = Functions;
 
 // Classes
-app.classes.Person = Person;
-app.classes.Student = Student;
-app.classes.Teacher = Teacher;
-app.classes.Table = new Table();
+app.classes = classes;
 
 // PubSub events
 app.events.sub("createTeacher", app.classes.Table.createTeacherJS);
