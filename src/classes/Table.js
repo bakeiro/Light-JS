@@ -22,8 +22,8 @@ class Table {
   }
 
   static refreshData() {
-    const stringData = JSON.stringify(app.data, null, '<p></p>');
-    const appDataBox = d.$('#app_data');
+    const stringData = JSON.stringify(app.data, null, "<p></p>");
+    const appDataBox = d.$("#app_data");
     const dataHtml = `
     <h4>App data:</h4>
     ${stringData}`;

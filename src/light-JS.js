@@ -28,9 +28,9 @@ window.d.$ = window.document.querySelector;
 // Data
 let classes_names = Object.keys(classes);
 classes_names.forEach((value) => {
-    let temp_index = value.toLowerCase();
-    temp_index += "s";
-    app.data[temp_index] = [];
+  let temp_index = value.toLowerCase();
+  temp_index += "s";
+  app.data[temp_index] = [];
 });
 
 // Engine
@@ -42,16 +42,16 @@ app.classes = classes;
 
 // Events
 Object.keys(pub_sub_events).forEach((event_name, index) => {
-    
-    let list_events_to_add = [];
-    pub_sub_events[event_name].forEach((event_function) => {
-        list_events_to_add.push(event_function);
-    });
-    
-    list_events_to_add.forEach((event_function_name) => {
-        let splitted_array = event_function_name.split(/[.]/g);
-        app.events.sub(event_name, app[splitted_array[0]][splitted_array[1]][splitted_array[2]]);
-    });
+
+  let list_events_to_add = [];
+  pub_sub_events[event_name].forEach((event_function) => {
+    list_events_to_add.push(event_function);
+  });
+
+  list_events_to_add.forEach((event_function_name) => {
+    let splitted_array = event_function_name.split(/[.]/g);
+    app.events.sub(event_name, app[splitted_array[0]][splitted_array[1]][splitted_array[2]]);
+  });
 });
 
 // Global scope
