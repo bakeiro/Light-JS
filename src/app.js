@@ -8,10 +8,13 @@ import { PubSub } from "./engine/PubSub.js";
 import { Functions } from "./engine/Functions.js";
 
 // Listener
-import { } from "./src/Events.js";
+import { } from "./code/Events.js";
 
 // Classes
-import * as classes from './src/Classes.js';
+import * as classes from './Classes.js';
+
+// PubSub events
+import { pub_sub_events } from "./code/PubSubFunctions.js";
 
 // App
 let app = {};
@@ -37,9 +40,7 @@ app.functions = Functions;
 // Classes
 app.classes = classes;
 
-// PubSub events
-import { pub_sub_events } from "./src/PubSubFunctions.js";
-
+// Events
 Object.keys(pub_sub_events).forEach((event_name, index) => {
     
     let list_events_to_add = [];

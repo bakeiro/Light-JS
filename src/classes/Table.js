@@ -1,6 +1,6 @@
 class Table {
   static createStudentJS() {
-    const tempStudent = new app.classes.Student(5, "Test");
+    const tempStudent = new app.classes.Student(14, "estudiante");
     app.data.students.push(tempStudent);
   }
 
@@ -11,7 +11,7 @@ class Table {
   }
 
   static createTeacherJS() {
-    const tempTeacher = new app.classes.Teacher(5, "Test");
+    const tempTeacher = new app.classes.Teacher(25, "profe");
     app.data.teachers.push(tempTeacher);
   }
 
