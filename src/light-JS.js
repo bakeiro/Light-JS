@@ -1,5 +1,5 @@
 /**
- * Start up file, load dependencies, makes app variable global, set the 
+ * Start up file, load dependencies, makes app variable global, set the
  * publish and subscribe events and more
  */
 
@@ -11,7 +11,7 @@ import { Functions } from "./engine/Functions.js";
 import { } from "./code/Events.js";
 
 // Classes
-import * as classes from './code/Classes.js';
+import * as classes from "./code/Classes.js";
 
 // PubSub events
 import { pub_sub_events } from "./code/PubSubFunctions.js";
@@ -42,7 +42,6 @@ app.classes = classes;
 
 // Events
 Object.keys(pub_sub_events).forEach((event_name, index) => {
-
   let list_events_to_add = [];
   pub_sub_events[event_name].forEach((event_function) => {
     list_events_to_add.push(event_function);

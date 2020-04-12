@@ -1,22 +1,18 @@
 {
-  "name": "jsApps",
-  "version": "1.0.0",
-  "description": "Personal structure to write apps in vanilla JS, the purpose of this is to offer an alternative for writing frameworkless JS apps.\r  No library dependence.",
-  "main": "index.js",
+  "name": "light-js",
+  "description": "Micro JS 'framework/library' used for making dynamic web apps easy to develop and maintain, not aimed for big dynamic apps, and not compatible with old browsers (ES6 compatibility it's a requirement)",
+  "main": "light-JS.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint \"src/**/*.js\" ",
+    "solve-lint": "eslint --fix \"src/**/*.js\" "
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bakeiro/JS-Apps.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["Micro JS framework", "Micro JS library"],
+  "author": "David Baqueiro",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bakeiro/JS-Apps/issues"
+    "url": "https://github.com/bakeiro/light-JS/issues"
   },
-  "homepage": "https://github.com/bakeiro/JS-Apps#readme",
+  "homepage": "https://github.com/bakeiro/light-JS",
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",

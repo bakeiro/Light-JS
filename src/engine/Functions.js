@@ -1,22 +1,22 @@
 /**
  * Static class, it contains general use functions
- * 
+ *
  * base64encode
  * base64decode
- * 
+ *
  * parseURLParams
  * getDomain
- * 
+ *
  * isNumeric
  * numberFormat
- * 
+ *
  * message
- * 
+ *
  * fadeIn
  * fadeOut
  * hide
  * show
- * 
+ *
  * insertAfter
  * insertBefore
  * remove
@@ -129,7 +129,7 @@ class Functions {
     message_div.style.borderRadius = "0.25rem";
     message_div.style.marginBottom = "1rem";
     message_div.style.padding = "0.75rem 1.25rem";
-    
+
     this.fadeIn(message_div, speed);
 
     // Hide + remove

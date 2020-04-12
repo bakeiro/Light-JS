@@ -4,9 +4,12 @@ module.exports = {
     "es6": true
   },
   "globals": {
-    "$": true,
     "window": true,
-    "console": true
+    "console": true,
+    "e": true,
+    "app": true,
+    "$": true,
+    "d": true
   },
   "extends": "airbnb-base",
   "rules": {
