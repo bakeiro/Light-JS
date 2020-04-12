@@ -11,7 +11,7 @@ import { Functions } from "./engine/Functions.js";
 import { } from "./code/Events.js";
 
 // Classes
-import * as classes from './Classes.js';
+import * as classes from './code/Classes.js';
 
 // PubSub events
 import { pub_sub_events } from "./code/PubSubFunctions.js";
