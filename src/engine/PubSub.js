@@ -1,9 +1,9 @@
 class PubSub {
-  constructor() {
+  constructor () {
     this.subscribers = {};
   }
 
-  sub(name, callback) {
+  sub (name, callback) {
     if (!this.subscribers[name]) {
       this.subscribers[name] = [callback];
     } else {
@@ -11,7 +11,7 @@ class PubSub {
     }
   }
 
-  pub(eventName, data) {
+  pub (eventName, data) {
     if (this.subscribers[eventName]) {
       this.subscribers[eventName].forEach((eventFunction) => {
         eventFunction(data);

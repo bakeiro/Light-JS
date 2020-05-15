@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   divRight.innerHTML += html;
 });
 
-
 // Click
 document.addEventListener("click", (e) => {
   const elementId = e.srcElement.id;
@@ -25,7 +24,6 @@ document.addEventListener("click", (e) => {
     app.functions.message("Hi! this is a message", 2000, "normal");
   }
 });
-
 
 // Mouseover
 document.addEventListener("mouseover", (e) => {

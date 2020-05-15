@@ -13,12 +13,14 @@ module.exports = {
   },
   "extends": "standard",
   "rules": {
+    "semi": ["error", "always"],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "no-alert": "off",
     "prefer-const": "off",
     "prefer-destructuring": "off",
     "class-methods-use-this": "off",
+    "import/extensions" : "off",
     //"camelcase": ["error", {properties: "never"}]
     "camelcase": "off"
   }

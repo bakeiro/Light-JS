@@ -26,7 +26,7 @@ class Functions {
    * Encode in base 64 (like PHP function)
    * @param {mix} str value to encode
    */
-  static base64encode(str) {
+  static base64encode (str) {
     return window.btoa(unescape(encodeURIComponent(str)));
   }
 
@@ -34,7 +34,7 @@ class Functions {
    * Decodes the base64 encoded content
    * @param {mix} str Decodes the already coded content
    */
-  static base64decode(str) {
+  static base64decode (str) {
     return decodeURIComponent(escape(window.atob(str)));
   }
 
@@ -42,7 +42,7 @@ class Functions {
    * Parses an URL given in the url param, and return all the GET variables inside the URL
    * @param {string} url Url to parse
    */
-  static parseURLParams(url) {
+  static parseURLParams (url) {
     let queryStart = url.indexOf("?") + 1;
     let queryEnd = url.indexOf("#") + 1 || url.length + 1;
     let query = url.slice(queryStart, queryEnd - 1);
@@ -66,7 +66,7 @@ class Functions {
   /**
    * Get current domain
    */
-  static getDomain() {
+  static getDomain () {
     return `${window.location.protocol}//${window.location.host}/`;
   }
 
@@ -74,7 +74,7 @@ class Functions {
    * Checks if the given value in the value param it's an number
    * @param {mix} value value to check if it's an number
    */
-  static isNumeric(value) {
+  static isNumeric (value) {
     return !isNaN(value - parseFloat(value));
   }
 
@@ -86,7 +86,7 @@ class Functions {
    * @param {string} decPoint how to represent a decimal separator
    * @param {string} thousandsSep how to show the thousand separator
    */
-  static numberFormat(number, decimals, decPoint, thousandsSep) {
+  static numberFormat (number, decimals, decPoint, thousandsSep) {
     number = (`${number}`).replace(/[^0-9+\-Ee.]/g, "");
     let n = !isFinite(+number) ? 0 : +number;
     let prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
@@ -116,7 +116,7 @@ class Functions {
    * @param {string} message Message to show
    * @param {int} seconds Number of milliseconds that the message is keep
    */
-  static message(message, milliseconds = 0, speed = "normal") {
+  static message (message, milliseconds = 0, speed = "normal") {
     let html = "";
     html = `<div class='message'>${message}</div>`;
 
@@ -144,7 +144,7 @@ class Functions {
    * Appear a hidden element doing an animation
    * @param {HTMLElement} el DOM element to restore
    */
-  static fadeIn(el, speed = "normal", display = "block") {
+  static fadeIn (el, speed = "normal", display = "block") {
     el.style.opacity = 0;
     el.style.display = display;
 
@@ -171,7 +171,7 @@ class Functions {
    * Hides an HTMLElement doing an animation
    * @param {HTMLElement} el HTMLElement to make it disappear
    */
-  static fadeOut(el, speed = "normal") {
+  static fadeOut (el, speed = "normal") {
     el.style.opacity = 1;
 
     let speed_num = 0.05;
@@ -199,7 +199,7 @@ class Functions {
    * @param {HTMLElement} el Element to add the class
    * @param {string} className class name to add
    */
-  static addClass(el, className) {
+  static addClass (el, className) {
     el.classList.add(className);
   }
 
@@ -208,7 +208,7 @@ class Functions {
    * @param {HTMLElement} el Element to remove the class
    * @param {string} className class name to remove
    */
-  static removeClass(el, className) {
+  static removeClass (el, className) {
     el.classList.remove(className);
   }
 
@@ -217,7 +217,7 @@ class Functions {
    * @param {HTMLElement} el Element to toggle the class
    * @param {string} className class name to toggle
    */
-  static toggleClass(el, className) {
+  static toggleClass (el, className) {
     el.classList.toggle(className);
   }
 
@@ -225,35 +225,35 @@ class Functions {
    * Hides the given HTMLElement
    * @param {HTMLElement} el HTMLElement to hide
    */
-  static hide(el) {
+  static hide (el) {
     el.style.display = "none";
   }
 
   /**
    * @param {HTMLElement} el HTMLElement to shows
    */
-  static show(el) {
+  static show (el) {
     el.style.display = "";
   }
 
   // HTML
-  static insertAfter(target, html) {
+  static insertAfter (target, html) {
     target.insertAdjacentHTML("afterend", html);
   }
 
-  static insertBefore(target, html) {
+  static insertBefore (target, html) {
     target.insertAdjacentHTML("beforebegin", html);
   }
 
-  static append(target, element_to_add) {
+  static append (target, element_to_add) {
     target.appendChild(element_to_add);
   }
 
-  static prepend(target, element_to_add) {
+  static prepend (target, element_to_add) {
     target.insertBefore(element_to_add, target.firstChild);
   }
 
-  static remove(el) {
+  static remove (el) {
     el.parentNode.removeChild(el);
   }
 }
