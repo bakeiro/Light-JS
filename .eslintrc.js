@@ -17,11 +17,13 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "no-alert": "off",
+    "camelcase": "off",
+    "indent": ["error", 2],
+    "no-console": "warn",
+    "no-alert": "warn"
     // "prefer-const": "off",
     // "import/extensions" : "off",
-    "prefer-destructuring": "off",
-    "class-methods-use-this": "off",
-    //"camelcase": ["error", {properties: "never"}]
-    "camelcase": "off"
+    // "prefer-destructuring": "off",
+    // "class-methods-use-this": "off",
   }
 }
