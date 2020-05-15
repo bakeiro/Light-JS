@@ -19,6 +19,7 @@ module.exports = {
     "prefer-const": "off",
     "prefer-destructuring": "off",
     "class-methods-use-this": "off",
+    "import/extensions" : "never",
     //"camelcase": ["error", {properties: "never"}]
     "camelcase": "off"
   }

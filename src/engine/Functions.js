@@ -258,4 +258,4 @@ class Functions {
   }
 }
 
-export { Functions };
+export default Functions;

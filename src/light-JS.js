@@ -3,18 +3,11 @@
  * publish and subscribe events and more
  */
 
-// Engine
-import { PubSub } from "./engine/PubSub.js";
-import { Functions } from "./engine/Functions.js";
-
-// Listener
-import { } from "./code/Events.js";
-
-// Classes
-import * as classes from "./code/Classes.js";
-
-// PubSub events
-import { pub_sub_events } from "./code/PubSubFunctions.js";
+import { PubSub } from "./engine/PubSub.js"; // Engine
+import Functions from "./engine/Functions.js"; // Engine
+import { } from "./code/Events.js"; // Listener
+import * as classes from "./code/Classes.js"; // Classes
+import pub_sub_events from "./code/PubSubFunctions.js"; // PubSub events
 
 // App
 let app = {};
