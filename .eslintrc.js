@@ -17,10 +17,10 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "no-alert": "off",
-    "prefer-const": "off",
+    // "prefer-const": "off",
+    // "import/extensions" : "off",
     "prefer-destructuring": "off",
     "class-methods-use-this": "off",
-    "import/extensions" : "off",
     //"camelcase": ["error", {properties: "never"}]
     "camelcase": "off"
   }

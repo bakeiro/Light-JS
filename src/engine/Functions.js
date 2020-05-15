@@ -43,12 +43,12 @@ class Functions {
    * @param {string} url Url to parse
    */
   static parseURLParams (url) {
-    let queryStart = url.indexOf("?") + 1;
-    let queryEnd = url.indexOf("#") + 1 || url.length + 1;
-    let query = url.slice(queryStart, queryEnd - 1);
-    let pairs = query.replace(/\+/g, " ").split("&");
-    let parms = {}; let i; let n; let v; let
-      nv;
+    const queryStart = url.indexOf("?") + 1;
+    const queryEnd = url.indexOf("#") + 1 || url.length + 1;
+    const query = url.slice(queryStart, queryEnd - 1);
+    const pairs = query.replace(/\+/g, " ").split("&");
+    const parms = {}; let i; let n; let v;
+    let nv;
 
     if (query === url || query === "") return;
 
@@ -57,9 +57,17 @@ class Functions {
       n = decodeURIComponent(nv[0]);
       v = decodeURIComponent(nv[1]);
 
-      if (!parms.hasOwnProperty(n)) parms[n] = [];
-      parms[n].push(nv.length === 2 ? v : null);
+      if (!parms.hasOwnProperty(n)) {
+        parms[n] = [];
+      }
+
+      if (nv.length === 2) {
+        parms[n].push(v);
+      } else {
+        parms[n].push(null);
+      }
     }
+
     return parms;
   }
 
@@ -88,14 +96,14 @@ class Functions {
    */
   static numberFormat (number, decimals, decPoint, thousandsSep) {
     number = (`${number}`).replace(/[^0-9+\-Ee.]/g, "");
-    let n = !isFinite(+number) ? 0 : +number;
-    let prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
-    let sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
-    let dec = (typeof decPoint === "undefined") ? "." : decPoint;
+    const n = !isFinite(+number) ? 0 : +number;
+    const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
+    const sep = (typeof thousandsSep === "undefined") ? "," : thousandsSep;
+    const dec = (typeof decPoint === "undefined") ? "." : decPoint;
     let s = "";
 
-    let toFixedFix = (n, prec) => {
-      let k = Math.pow(10, prec);
+    const toFixedFix = (n, prec) => {
+      const k = Math.pow(10, prec);
       return `${(Math.round(n * k) / k).toFixed(prec)}`;
     };
 
@@ -120,11 +128,11 @@ class Functions {
     let html = "";
     html = `<div class='message'>${message}</div>`;
 
-    let container = d.$("body");
+    const container = d.$("body");
     container.innerHTML = html + container.innerHTML;
 
     // Show
-    let message_div = d.$("div.message");
+    const message_div = d.$("div.message");
     // message_div.style.border = "11";
     message_div.style.borderRadius = "0.25rem";
     message_div.style.marginBottom = "1rem";
@@ -156,9 +164,9 @@ class Functions {
       speed_num = 0.025;
     }
 
-    let fade = () => {
+    const fade = () => {
       let temp_val = parseFloat(el.style.opacity);
-      let comp_val = (temp_val += speed_num);
+      const comp_val = (temp_val += speed_num);
       if (!(comp_val > 1)) {
         el.style.opacity = temp_val;
         requestAnimationFrame(fade);
@@ -182,8 +190,8 @@ class Functions {
       speed_num = 0.025;
     }
 
-    let fade = () => {
-      let temp_opacity = (el.style.opacity -= speed_num);
+    const fade = () => {
+      const temp_opacity = (el.style.opacity -= speed_num);
       if (temp_opacity < 0) {
         el.style.display = "none";
       } else {
