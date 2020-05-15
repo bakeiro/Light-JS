@@ -11,7 +11,7 @@ module.exports = {
     "$": true,
     "d": true
   },
-  "extends": "airbnb-base",
+  "extends": "standard",
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
@@ -19,7 +19,6 @@ module.exports = {
     "prefer-const": "off",
     "prefer-destructuring": "off",
     "class-methods-use-this": "off",
-    "import/extensions" : "never",
     //"camelcase": ["error", {properties: "never"}]
     "camelcase": "off"
   }
