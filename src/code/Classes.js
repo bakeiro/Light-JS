@@ -3,7 +3,7 @@
  * in order to be able to access/instantiate and use them.
  */
 
-export { Person } from "/src/classes/Person.js";
-export { Student } from "/src/classes/Student.js";
-export { Table } from "/src/classes/Table.js";
-export { Teacher } from "/src/classes/Teacher.js";
+export { Person } from "../classes/Person.js";
+export { Student } from "../classes/Student.js";
+export { Table } from "../classes/Table.js";
+export { Teacher } from "../classes/Teacher.js";
