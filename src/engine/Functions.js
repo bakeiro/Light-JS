@@ -29,7 +29,6 @@
  *
  */
 class Functions {
-
   /**
    * Encode in base 64 (like PHP function)
    * @param {mix} str value to encode
