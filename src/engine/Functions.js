@@ -1,27 +1,35 @@
 /**
  * Static class, it contains general use functions
  *
+ * --General use functions--
  * base64encode
  * base64decode
- *
  * parseURLParams
  * getDomain
- *
  * isNumeric
  * numberFormat
- *
  * message
  *
+ * --Animations functions--
  * fadeIn
  * fadeOut
+ *
+ * -- DOM functions--
  * hide
  * show
- *
  * insertAfter
  * insertBefore
  * remove
+ *
+ * --Events functions
+ * ...
+ *
+ * --Ajax functions
+ * ...
+ *
  */
 class Functions {
+
   /**
    * Encode in base 64 (like PHP function)
    * @param {mix} str value to encode
@@ -244,23 +252,46 @@ class Functions {
     el.style.display = "";
   }
 
-  // HTML
+  /**
+   * Inserts HTML after and specified HTMLElement
+   * @param {HTMLElement} target Dom element to insert content after
+   * @param {string} html String html that contains the content to be inserted
+   */
   static insertAfter (target, html) {
     target.insertAdjacentHTML("afterend", html);
   }
 
+  /**
+   * Insert HTML content just before the specified HTMLElement in the target parameter
+   * @param {HTMLElement} target HTMLElement to insert HTML content just before
+   * @param {string} html HTML string that contains the content to be inserted
+   */
   static insertBefore (target, html) {
     target.insertAdjacentHTML("beforebegin", html);
   }
 
+  /**
+   * Appends and HTMLElement to the end of the target HTMLElement
+   * @param {HTMLElement} target HTMLElement to add content at the end
+   * @param {HTMLElement} element_to_add HTMLElement content to be inserted at then end of target parameter
+   */
   static append (target, element_to_add) {
     target.appendChild(element_to_add);
   }
 
+  /**
+   * Prepends an element_to_add param to the beginning of target HTMLElement
+   * @param {HTMLElement} target HTMLElement to add something at the beginning
+   * @param {HTMLElement} element_to_add HTMLElement to be added
+   */
   static prepend (target, element_to_add) {
     target.insertBefore(element_to_add, target.firstChild);
   }
 
+  /**
+   * Removes an el param from the DOM
+   * @param {HTMLElement} el HTMLElement to be removed
+   */
   static remove (el) {
     el.parentNode.removeChild(el);
   }
