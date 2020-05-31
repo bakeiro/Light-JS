@@ -1,13 +1,12 @@
 {
   "name": "light-js",
-  "description": "Micro JS 'framework/library' made using ES6 features, used for making dynamic web apps easy to develop and maintain, not aimed for big dynamic apps, and not compatible with old browsers (ES6 compatibility it's a requirement)",
+  "description": "Micro JS 'framework/library' made using ES6 features, used for making dynamic web apps easy to develop and maintain,not aimed for big dynamic apps, and not compatible with old browsers (ES6 compatibility it's a requirement)",
   "main": "light-JS.js",
   "scripts": {
     "lint": "eslint \"src/**/*.js\" ",
     "fix-lint": "eslint --fix \"src/**/*.js\" "
   },
   "keywords": [
-    "Micro JS framework",
     "Micro JS library"
   ],
   "author": "David Baqueiro",

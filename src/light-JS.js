@@ -5,6 +5,7 @@
 
 import { PubSub } from "./engine/PubSub.js"; // Engine
 import Functions from "./engine/Functions.js"; // Engine
+import Animations from "./engine/Animations.js"; // Engine
 import { } from "./code/Events.js"; // Listener
 import * as classes from "./code/Classes.js"; // Classes
 import pub_sub_events from "./code/PubSubFunctions.js"; // PubSub events
@@ -29,6 +30,7 @@ classes_names.forEach((value) => {
 // Engine
 app.events = new PubSub();
 app.functions = Functions;
+app.animations = new Animations();
 
 // Classes
 app.classes = classes;

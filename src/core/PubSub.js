@@ -1,3 +1,8 @@
+
+/**
+ * Publish subscribe pattern class, class used for
+ * implementing this behaviour pattern
+ */
 class PubSub {
   constructor () {
     this.subscribers = {};

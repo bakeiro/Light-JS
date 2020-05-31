@@ -19,10 +19,7 @@ module.exports = {
     camelcase: "off",
     indent: ["error", 2],
     "no-console": "warn",
-    "no-alert": "warn"
-    // "prefer-const": "off",
-    // "import/extensions" : "off",
-    // "prefer-destructuring": "off",
-    // "class-methods-use-this": "off",
+    "no-alert": "warn",
+    "prefer-const": "on"
   }
 };
