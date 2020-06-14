@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/bakeiro/Light-PHP/blob/7c5e7aa0993bdb48a17bdbe19d780826648794c6/src/view/www/src/images/logo.png"  alt="logo" width=300 height=83>
+ <img src="https://github.com/bakeiro/Light-PHP-documentation/blob/master/src/images/logo-light-js.png"  alt="logo" width=300 height=83>
 </p>
 
 # What?
