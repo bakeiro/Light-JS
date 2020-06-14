@@ -1,3 +1,7 @@
+<p align="center">
+ <img src="https://github.com/bakeiro/Light-PHP/blob/7c5e7aa0993bdb48a17bdbe19d780826648794c6/src/view/www/src/images/logo.png"  alt="logo" width=300 height=83>
+</p>
+
 # What?
 
  Personal structure to write apps in vanilla JS, the purpose of this is to offer an alternative for writing frameworkless JS apps.
