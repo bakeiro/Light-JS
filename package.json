@@ -11,6 +11,10 @@
   ],
   "author": "David Baqueiro",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bakeiro/light-JS.git"
+  },
   "bugs": {
     "url": "https://github.com/bakeiro/light-JS/issues"
   },
