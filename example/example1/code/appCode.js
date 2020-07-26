@@ -1,9 +1,9 @@
 
 // lazy load
-app.core.modules.lazyImport("/classes/Person.js");
-app.core.modules.lazyImport("/classes/Student.js");
-app.core.modules.lazyImport("/classes/Table.js");
-app.core.modules.lazyImport("/classes/Teacher.js");
+app.core.modules.lazyImportModule("../classes/Person.js", "Person");
+app.core.modules.lazyImportModule("../classes/Student.js", "Student");
+app.core.modules.lazyImportModule("../classes/Table.js", "Table");
+app.core.modules.lazyImportModule("../classes/Teacher.js", "Teacher");
 
 // use pub/sub
 app.core.events.sub("createTeacher", app.classes.Table.createTeacherJS);
