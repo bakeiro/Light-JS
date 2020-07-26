@@ -13,11 +13,11 @@ module.exports = {
   },
   extends: "standard",
   rules: {
-    semi: ["error", "always"],
+    "semi": ["error", "always"],
     "linebreak-style": ["error", "unix"],
-    quotes: ["error", "double"],
-    camelcase: "off",
-    indent: ["error", 2],
+    "quotes": ["error", "double"],
+    "camelcase": "off",
+    "indent": ["error", 2],
     "no-console": "warn",
     "no-alert": "warn",
     "prefer-const": "on"

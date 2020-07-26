@@ -7,7 +7,7 @@
  * numberFormat
  * message
  */
-class Functions {
+class Helper {
   /**
    * Encode in base 64 (like PHP function)
    * @param {mix} str value to encode
@@ -135,4 +135,4 @@ class Functions {
   }
 }
 
-export default Functions;
+export default Helper;
