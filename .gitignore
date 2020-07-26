@@ -1,9 +1,2 @@
-# Cache
-src/.cache/*
-src/dist/*
-
-# Node
-node_modules/*
-
-# Others
 dist/*
+node_modules/*

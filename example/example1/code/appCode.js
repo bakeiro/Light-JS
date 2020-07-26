@@ -1,18 +1,18 @@
 
 // lazy load
-app.modules.lazyImport("/classes/Person.js");
-app.modules.lazyImport("/classes/Student.js");
-app.modules.lazyImport("/classes/Table.js");
-app.modules.lazyImport("/classes/Teacher.js");
+app.core.modules.lazyImport("/classes/Person.js");
+app.core.modules.lazyImport("/classes/Student.js");
+app.core.modules.lazyImport("/classes/Table.js");
+app.core.modules.lazyImport("/classes/Teacher.js");
 
 // use pub/sub
-app.events.sub("createTeacher", app.classes.Table.createTeacherJS);
-app.events.sub("createTeacher", app.classes.Table.createTeacherHTML);
-app.events.sub("createTeacher", app.classes.Table.refreshData);
+app.core.events.sub("createTeacher", app.classes.Table.createTeacherJS);
+app.core.events.sub("createTeacher", app.classes.Table.createTeacherHTML);
+app.core.events.sub("createTeacher", app.classes.Table.refreshData);
 
-app.events.sub("createStudent", app.classes.Table.createStudentJS);
-app.events.sub("createStudent", app.classes.Table.createStudentHTML);
-app.events.sub("createStudent", app.classes.Table.refreshData);
+app.core.events.sub("createStudent", app.classes.Table.createStudentJS);
+app.core.events.sub("createStudent", app.classes.Table.createStudentHTML);
+app.core.events.sub("createStudent", app.classes.Table.refreshData);
 
 // events here
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,11 +32,11 @@ document.addEventListener("click", (e) => {
   const elementId = e.srcElement.id;
 
   if (elementId === "button_1") {
-    app.events.pub("createStudent");
+    app.core.events.pub("createStudent");
   }
 
   if (elementId === "show_message") {
-    app.functions.message("Hi! this is a message", 2000, "normal");
+    app.core.helper.message("Hi! this is a message", 2000, "normal");
   }
 });
 
@@ -45,6 +45,6 @@ document.addEventListener("mouseover", (e) => {
   const elementId = e.srcElement.id;
 
   if (elementId === "button_2") {
-    app.events.pub("createTeacher");
+    app.core.events.pub("createTeacher");
   }
 });

@@ -4,8 +4,7 @@
  */
 
 // Light-JS Core
-import AJAX from "./core/AJAX.js";
-import Helper from "./core/Helper.js";
+// import AJAX from "./core/AJAX.js";
 import Animations from "./core/Animations.js";
 import DOM from "./core/DOM.js";
 import Events from "./core/Events.js";
@@ -23,7 +22,7 @@ window.d = window.document;
 window.d.$ = window.document.querySelector;
 
 // Import core
-app.core.ajax = AJAX;
+// app.core.ajax = AJAX;
 app.core.helper = Helper;
 app.core.animations = Animations;
 app.core.DOM = DOM;

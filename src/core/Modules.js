@@ -5,19 +5,21 @@ class Modules {
 
     /**
      * Loads a module dynamically
-     * @param {*} callback 
+     * @param {*} path 
      */
-    lazyLoadModule(callback) {
-        let table_module_0 = await import(`/src/classes/Table.js`);
+    async lazyLoadModule(path) {
+        let table_module_0 = await import(`${path}.js`);
         return table_module_0;
     }
 
     /**
      * Loads and imports a module through lazy loading
      */
-    lazyImportModule() {
-        let table_module_0 = await import(`/src/classes/Table.js`);
-        app.classes.push(new_loaded_module);
-        app.data[new_loaded_module] = [];
+    async lazyImportModule(path, module_name) {
+        let loaded_module = await import(`${path}.js`);
+        app.classes[module_name] = loaded_module;
+        app.data[module_name] = [];
     }
 }
+
+export default Modules;

@@ -2,7 +2,7 @@
  * Publish subscribe pattern class, class used for
  * implementing this behaviour pattern
  */
-static class PubSub {
+class Events {
   constructor () {
     this.subscribers = {};
   }
@@ -24,4 +24,4 @@ static class PubSub {
   }
 }
 
-export { PubSub };
+export default Events;
