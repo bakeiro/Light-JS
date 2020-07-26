@@ -35,18 +35,5 @@ app.animations = new Animations();
 // Classes
 app.classes = classes;
 
-// Events
-Object.keys(pub_sub_events).forEach((event_name, index) => {
-  const list_events_to_add = [];
-  pub_sub_events[event_name].forEach((event_function) => {
-    list_events_to_add.push(event_function);
-  });
-
-  list_events_to_add.forEach((event_function_name) => {
-    const splitted_array = event_function_name.split(/[.]/g);
-    app.events.sub(event_name, app[splitted_array[0]][splitted_array[1]][splitted_array[2]]);
-  });
-});
-
 // Global scope
 window.app = app;

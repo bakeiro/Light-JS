@@ -1,18 +1,20 @@
 
-//lazy load
-export { Person } from "../classes/Person.js";
-export { Student } from "../classes/Student.js";
-export { Table } from "../classes/Table.js";
-export { Teacher } from "../classes/Teacher.js";
+// lazy load
+app.modules.lazyImport("/classes/Person.js");
+app.modules.lazyImport("/classes/Student.js");
+app.modules.lazyImport("/classes/Table.js");
+app.modules.lazyImport("/classes/Teacher.js");
 
 // use pub/sub
-const pub_sub_events = {};
-pub_sub_events.createTeacher = ["classes.Table.createTeacherJS", "classes.Table.createTeacherHTML", "classes.Table.refreshData"];
-pub_sub_events.createStudent = ["classes.Table.createStudentJS", "classes.Table.createStudentHTML", "classes.Table.refreshData"];
+app.events.sub("createTeacher", app.classes.Table.createTeacherJS);
+app.events.sub("createTeacher", app.classes.Table.createTeacherHTML);
+app.events.sub("createTeacher", app.classes.Table.refreshData);
 
+app.events.sub("createStudent", app.classes.Table.createStudentJS);
+app.events.sub("createStudent", app.classes.Table.createStudentHTML);
+app.events.sub("createStudent", app.classes.Table.refreshData);
 
 // events here
-
 document.addEventListener("DOMContentLoaded", () => {
   // Add dynamic content
   const divRight = d.$("#left_2");

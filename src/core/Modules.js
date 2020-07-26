@@ -1,9 +1,10 @@
 class Modules {
-    lazyLoad(callback) {
+    lazyLoadModule(callback) {
         let table_module_0 = await import(`/src/classes/Table.js`);
+        return table_module_0;
     }
 
-    lazyLoadAdd() {
+    lazyImportModule() {
         let table_module_0 = await import(`/src/classes/Table.js`);
         app.classes.push(new_loaded_module);
     }
